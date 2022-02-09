@@ -1,5 +1,7 @@
 package com.example.contestapp;
 
+import com.example.contestapp.repository.QuestionRepository;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +19,8 @@ import java.util.Locale;
 @Configuration
 @ComponentScan(basePackages = "com.example.contestapp")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.example.contestapp.repository")
+@EnableJpaRepositories(basePackages = "com.example.contestapp")
+@EntityScan(basePackages = "com.example.contestapp.model")
 public class AppConfig {
 
     @Bean(name = "localeResolver")
@@ -26,10 +29,14 @@ public class AppConfig {
         localeResolver.setDefaultLocale(new Locale("pl", "PL"));
         return localeResolver;
     }
+
     @Bean
     public Validator validator() {
         return new LocalValidatorFactoryBean();
     }
+
+
+
     @Bean(name = "transactionManager")
     public JpaTransactionManager jpaTransactionManager(EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
