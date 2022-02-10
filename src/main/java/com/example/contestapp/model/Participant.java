@@ -1,9 +1,10 @@
 package com.example.contestapp.model;
 
+
 import lombok.*;
 
 import javax.persistence.*;
-
+/*
 @Entity
 @Getter
 @Setter
@@ -11,19 +12,15 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "answer")
-public class Answer {
+@Table(name = "participant")
+public class Participant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long question_id;
-    private long user_contest_id;
 
-
-    private String country;
-    private String participant;
+    private String name;
     private String song;
-  //  private int points;
 
 }
+*/

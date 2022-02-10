@@ -35,6 +35,7 @@
             </c:forEach>
 
            <a href="/contest/list">Show Contest</a>
+           <h3><a href="/answer/add">Add Answer to this question</a></h3>
 
 
 

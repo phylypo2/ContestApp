@@ -3,6 +3,7 @@ package com.example.contestapp.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,9 +27,9 @@ public class UserContest {
 
 
 
-    @OneToMany
-    @JoinColumn(name = "user_contest_id")
-    private List<Answer> answers;
+    @OneToMany(targetEntity = Answer.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_contest_id", nullable = true)
+    private List<Answer> answers = new ArrayList<>();
 
 
 }

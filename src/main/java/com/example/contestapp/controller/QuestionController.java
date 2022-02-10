@@ -3,24 +3,20 @@ package com.example.contestapp.controller;
 import com.example.contestapp.model.Contest;
 import com.example.contestapp.model.Question;
 import com.example.contestapp.model.UserContest;
+import com.example.contestapp.repository.ContestDao;
 import com.example.contestapp.repository.ContestRepository;
-import com.example.contestapp.repository.QuestionDao;
 import com.example.contestapp.repository.QuestionRepository;
 import com.example.contestapp.repository.UserContestRepository;
-import com.example.contestapp.service.UserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/question")
@@ -31,6 +27,7 @@ public class QuestionController {
     private final QuestionRepository questionRepository;
     private final ContestRepository contestRepository;
     private final UserContestRepository userContestRepository;
+    private final ContestDao contestDao;
   //  private final QuestionDao questionDao;
 
     @GetMapping("/add/{id}")
@@ -53,7 +50,7 @@ public class QuestionController {
         contest.getQuestions().add(question);
        questionRepository.save(question);
 
-        return "question/list";
+        return "redirect:/question/list";
     }
 
 
@@ -70,12 +67,13 @@ public class QuestionController {
     }
 
     @GetMapping("/list/{id}")
-    public String getQuestionListId( Model model,UserDetails userDetails, Question question, Contest contest, UserContest userContest) {
-        List<Question> questionList = questionRepository.findAll();
-        List<Contest> id = contestRepository.findAll();
-      //  long contestId = contest.getId();
-        model.addAttribute("questionListId", questionList);
-        model.addAttribute("contestId", id);
+    public String getQuestionListId(@PathVariable long id, Model model,@Valid Question question) {
+
+
+
+
+        model.addAttribute("questionListId", questionRepository.findAllByContest_id(id));
+     //   model.addAttribute("contestId", id);
         return "question/specificList";
 
     }

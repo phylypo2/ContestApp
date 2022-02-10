@@ -23,4 +23,5 @@ public interface ContestRepository extends JpaRepository<Contest, Long> {
 
 
 
+
 }

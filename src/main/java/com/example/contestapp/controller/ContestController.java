@@ -71,7 +71,8 @@ public class ContestController {
 
 
     @GetMapping("/list")
-    public String getList(Model model, User user) {
+    public String getList(Model model, Contest contest) {
+        long contestId = contest.getId();
         model.addAttribute("userContest", userContestRepository.findAll());
         model.addAttribute("contest", contestRepository.findAll());
         model.addAttribute("question", questionRepository.findAll());

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "question")
+
 public class Question {
 
     @Id
@@ -35,7 +37,8 @@ public class Question {
 
     @OneToMany
     @JoinColumn(name = "question_id")
-    private List<Answer> answers;
+    private List<Answer> answers = new ArrayList<>();
+
 
    /* @JsonIgnore
     @ManyToOne(optional = false)

@@ -17,17 +17,17 @@
 </head>
 <body>
 <%--@elvariable id="questionListId" type="com.example.contestapp.model.Question"--%>
+<%--@elvariable id="answer" type="com.example.contestapp.model.Answer"--%>
 <ul>
     <c:forEach items="${questionListId}" var="questionListId">
-
-
-<li>
-${questionListId.contest_id} ${questionListId.questName}
-</li>
-
-
-
-
+    <li>
+        ${questionListId.questName}
+    </li>
     </c:forEach>
+
+    <a href="/contest/list">Show Contest</a>
+
+
+
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleContextResolver;
@@ -21,6 +22,7 @@ import java.util.Locale;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.example.contestapp")
 @EntityScan(basePackages = "com.example.contestapp.model")
+
 public class AppConfig {
 
     @Bean(name = "localeResolver")
@@ -41,6 +43,7 @@ public class AppConfig {
     public JpaTransactionManager jpaTransactionManager(EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
+
 
 
 }

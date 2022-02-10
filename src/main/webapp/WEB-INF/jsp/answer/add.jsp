@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: filip
-  Date: 06.02.2022
-  Time: 13:48
+  Date: 10.02.2022
+  Time: 12:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,16 +14,27 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css" />
 <html>
-<%--@elvariable id="question" type="pl.coderslab.model.Question"--%>
-
+<html>
+<head>
+    <title>Title</title>
+</head>
 <body>
-<form:form method="post" modelAttribute="question">
+<form:form method="post" modelAttribute="answer">
     <div>
-        <label for="questName">Question</label>
-        <form:input required="questName" path="questName" type="text"/>
-        <form:errors path="questName" cssClass="error"/>
+        <label>Country:</label>
+        <form:input path="country" type="text"/>
+        <form:errors path="country" cssClass="error" element="div"/>
     </div>
-
+    <div>
+        <label>Participant:</label>
+        <form:input path="participant" type="text"/>
+        <form:errors path="participant" cssClass="error"/>
+    </div>
+    <div>
+        <label>Song:</label>
+        <form:input path="song" type="text"/>
+        <form:errors path="song" cssClass="error"/>
+    </div>
 
     <div>
         <input type="submit" value="Save">

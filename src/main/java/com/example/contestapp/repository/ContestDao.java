@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import javax.validation.constraints.NotNull;
+import java.awt.print.Book;
 import java.util.List;
 
 @Repository
@@ -17,6 +19,11 @@ public class ContestDao {
 
     public void save(Contest contest) {
         entityManager.persist(contest);
+    }
+
+    @NotNull
+    public Contest findById(long id) {
+        return entityManager.find(Contest.class, id);
     }
 
     public List<Contest> findAll() {

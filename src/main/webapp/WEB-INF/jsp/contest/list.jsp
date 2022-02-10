@@ -21,15 +21,17 @@
 <ul>
 
     <c:forEach items="${contest}" var="contest">
-        <li> ${contest.id} ${contest.name}
-            <a href="/question/add/${contest.id}">Add Question</a>
+        <li>
+            <a href="/question/list/${contest.id}">${contest.name}</a>
+
         </li>
     </c:forEach>
-<c:forEach items="${question}" var="question">
-        <a href="/question/add/${question.contest_id}">Add Question</a>
-        <a href="/form/books/remove/${userContest}">Add Anwser</a>
+<%---<c:forEach items="${question}" var="question" >
+   <li>
+        <a href="/question/list/${question.contest_id}">Show Questions</a>
             <a href="/question/list">Show Questions</a>
-</c:forEach>
+   </li>
+</c:forEach> --%>
     <c:forEach items="${userContest}" var="userContest">
         <li>
             <a href="/contest/remove/${userContest.id}">Delete contest</a>
