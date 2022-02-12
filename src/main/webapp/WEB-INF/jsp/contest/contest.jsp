@@ -11,20 +11,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css" />
 <html>
-
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
 <head>
-    <title>Home-Page</title>
+    <title>Contest List</title>
 </head>
 <body>
+<div style="text-align: center"/>
+<div style="font-family: 'Ubuntu Condensed'"
 <div class="container">
+    <div class="m-3">
     <div>
         <h1><spring:message code="app.title"/></h1>
     </div>
+        <div class="m-3">
     <sec:authorize access="isAuthenticated()">
 
     <h3><a href="/contest/create">Create Contest</a></h3>
 
-    <h3><a href="/userContest/list">Show your contests</a></h3>
+    <h3><a class="nav-link disabled" href="/userContest/list">Show your contests</a></h3>
 
     <h3><a href="/contest/list">Show All Contests</a></h3>
 
@@ -35,4 +39,5 @@
     </sec:authorize>
 
 </body>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>

@@ -33,11 +33,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-             //   .antMatchers("/about").authenticated()
+                .antMatchers("/contest/create").authenticated()
                 .and()
                 .formLogin()//.usernameParameter("login").defaultSuccessUrl("/").permitAll()
                 .loginPage("/login").defaultSuccessUrl("/home")
-                .and().logout().logoutSuccessUrl("/")
+                .and().logout().logoutSuccessUrl("/home")
                 .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }

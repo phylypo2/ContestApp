@@ -27,9 +27,9 @@ public class UserContest {
 
 
 
-    @OneToMany(targetEntity = Answer.class, cascade = CascadeType.ALL)
+   /* @OneToMany(targetEntity = Answer.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_contest_id", nullable = true)
-    private List<Answer> answers = new ArrayList<>();
+    private List<Answer> answers = new ArrayList<>(); */
 
 
 }

@@ -16,18 +16,28 @@
     <title>Home-Page</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
+<div style="text-align: center"/>
+<div style="font-family: 'Ubuntu Condensed'"
 <div class="container">
-    <div>
+    <div class="m-3">
         <h1><spring:message code="app.title"/></h1>
     </div>
+    <div class="m-3">
+        <div class="form-group row">
+            <label class="col-form-label col-2"></label>
+            <div class="col-8">
+                <h3><a href="/register">Register</a></h3>
     <h3><a href="/login">Login</a></h3>
     <sec:authorize access="isAuthenticated()">
     <h3><a href="/contest/contest">Contest</a></h3>
     </sec:authorize>
-
+                <sec:authorize access="isAuthenticated()">
+                <p>Hello <sec:authentication property="principal.username"/>!  Welcome to Contest App! Click Contest to experience more!</p>
+                </sec:authorize>
     <sec:authorize access="isAuthenticated()">
     <form action="<c:url value="/logout"/>" method="post">
-        <input type="submit" class="btn btn-primary" value="Wyloguj">
+        <input type="submit" class="btn btn-primary" value="Log Out">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
     </sec:authorize>
@@ -36,3 +46,4 @@
 
 </body>
 </html>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>

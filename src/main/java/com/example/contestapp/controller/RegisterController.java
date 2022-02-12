@@ -28,7 +28,7 @@ public class RegisterController {
         String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
-        return "index";
+        return "home";
     }
 
 }

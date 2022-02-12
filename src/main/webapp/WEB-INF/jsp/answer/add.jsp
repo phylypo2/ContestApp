@@ -16,20 +16,26 @@
 <html>
 <html>
 <head>
-    <title>Title</title>
+    <title>Add answers</title>
 </head>
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
 <body>
+<sec:authorize access="isAuthenticated()">
 <form:form method="post" modelAttribute="answer">
+    <div style="text-align: center"/>
+    <div style="font-family: 'Ubuntu Condensed'"
     <div>
         <label>Country:</label>
         <form:input path="country" type="text"/>
         <form:errors path="country" cssClass="error" element="div"/>
     </div>
+    <div style="font-family: 'Ubuntu Condensed'"
     <div>
         <label>Participant:</label>
         <form:input path="participant" type="text"/>
         <form:errors path="participant" cssClass="error"/>
     </div>
+    <div style="font-family: 'Ubuntu Condensed'"
     <div>
         <label>Song:</label>
         <form:input path="song" type="text"/>
@@ -42,4 +48,6 @@
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form:form>
 </body>
+</sec:authorize>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>

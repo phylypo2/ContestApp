@@ -8,12 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css" />
 <html>
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
 <head>
     <title>Login</title>
 </head>
 <body>
 
+
+    <div class="form-group row">
+
+        <div class="col-10">
+            <div style="text-align: center"/>
+            <div style="font-family: 'Ubuntu Condensed'"/>
 <form method="post">
     <div class="form-group-row"><label class="col-form-label col-2"> Login: <input type="text" name="username"/> </label></div>
     <div class="form-group-row"><label class="col-form-label col-2"> Password: <input type="password" name="password"/> </label></div>
@@ -25,6 +33,7 @@
 
 
 <sec:authorize access="isAuthenticated()">
+
     <form method="post" action="<c:url value ="/logout"/>" >
         <input type="submit" value="Wyloguj">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -37,4 +46,5 @@
 </sec:authorize>
 
 </body>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>

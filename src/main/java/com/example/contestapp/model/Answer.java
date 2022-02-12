@@ -18,7 +18,7 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long question_id;
-    private long user_contest_id;
+  //  private long user_contest_id;
 
 
     private String country;

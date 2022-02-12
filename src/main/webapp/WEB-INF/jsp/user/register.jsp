@@ -18,6 +18,8 @@
 
 <form:form action="/register" method="post" modelAttribute="user"
 cssStyle="max-width: 600px; margin: 0 auto">
+<div style="text-align: center"/>
+<div style="font-family: 'Ubuntu Condensed'"/>
 <div class="container">
     <div class="m-3">
         <h1><spring:message code="app.title"/></h1>
@@ -50,6 +52,7 @@ cssStyle="max-width: 600px; margin: 0 auto">
 
         <div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
+            <h3><button type="button" name="back" onclick="history.back()">Back</button></h3>
         </div>
         </div>
 
@@ -57,4 +60,5 @@ cssStyle="max-width: 600px; margin: 0 auto">
 </form:form>
 </div>
 </body>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>

@@ -14,21 +14,33 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css" />
 <html>
-<%--@elvariable id="question" type="pl.coderslab.model.Question"--%>
+<title>Add Question</title>
 
 <body>
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
+<sec:authorize access="isAuthenticated()">
+<div class="container">
+    <div class="m-3">
+        <div class="form-group row">
 <form:form method="post" modelAttribute="question">
+    <div style="text-align: center"/>
+    <div style="font-family: 'Ubuntu Condensed'"
     <div>
-        <label for="questName">Question</label>
+        <label for="questName">Type something</label>
         <form:input required="questName" path="questName" type="text"/>
         <form:errors path="questName" cssClass="error"/>
+
     </div>
 
+    It doesn't have to be a question!
 
     <div>
-        <input type="submit" value="Save">
+        <button type="submit" class="btn btn-primary">Save</button>
     </div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form:form>
+<img src="<c:url value="/resources/img/eurovision.jpeg"/> "
 </body>
+</sec:authorize>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>

@@ -13,29 +13,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Test</title>
 </head>
+<%@ include file="/WEB-INF/jsp/fragments/header.jsp" %>
 <body>
+<sec:authorize access="isAuthenticated()">
 <ul>
 <%--@elvariable id="questionList" type="com.example.contestapp.model.Question"--%>
+<%--@elvariable id="answer" type="com.example.contestapp.model.Answer"--%>
+    <%--@elvariable id="userContest" type="com.example.contestapp.model.UserContest"--%>
     <ul>
        <%-- <c:forEach items="${contest}" var="contest">
             <li>
 
             </li>
         </c:forEach> --%>
-
-
-        <c:forEach items="${questionList}" var="questionList">
-
-
+         <%---  <c:forEach items="${questionList}" var="questionList"> ---%>
+         <%---  ${questionList.questName} ---%>
                 <li>
-                        ${questionList.contest_id} ${questionList.questName}
-                </li>
-            </c:forEach>
 
-           <a href="/contest/list">Show Contest</a>
-           <h3><a href="/answer/add">Add Answer to this question</a></h3>
+                            <a href="/contest/list">Show Contest</a>
+                </li>
+           <h3><a href="/answer/add//">Add Answer to </a></h3>
 
 
 
@@ -43,4 +42,6 @@
     </ul>
 </ul>
 </body>
+</sec:authorize>
+<%@ include file="/WEB-INF/jsp/fragments/footer.jsp" %>
 </html>
